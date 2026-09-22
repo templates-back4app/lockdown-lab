@@ -4,7 +4,7 @@
 
 Measured on September 17, 2026: an open class allowed **12 of 12** requests, including an anonymous `DELETE` of another user's row. After the locks, **6 of 12**: the owner's own rows and the master key. Every table in the article comes from these scripts.
 
-> Read the article: *Your Frontend Talks Straight to the Database. Here Is How to Lock It Down* — link added at publication.
+> **Read the article:** [Your Frontend Talks Straight to the Database. Here Is How to Lock It Down](https://www.back4app.com/blog/lock-down-a-backend-your-frontend-talks-to)
 
 ## The tables
 
