@@ -1,10 +1,12 @@
 # lockdown-lab
 
+[![Deploy on Back4app](https://img.shields.io/badge/Deploy%20on-Back4app-1568B8?style=for-the-badge&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZmlsbD0iI2ZmZiIgZD0iTTEyIDJMMiA3djEwbDEwIDUgMTAtNVY3eiIvPjwvc3ZnPg==)](https://www.back4app.com/signup?utm_source=github&utm_medium=repo&utm_campaign=lockdown-lab)
+
 **What can anyone holding the App ID and JavaScript key from your frontend do to your data, and how do you stop them?** Twelve requests from four identities against one class, run with the class open and again after each of four locks: class-level permissions, an owner-only ACL stamped by a backend hook, a role checked in a Cloud Function, and a master key that never leaves the server. Built for a [Back4app](https://www.back4app.com/) backend (managed Parse Server); the scripts are bash and `curl`.
 
 Measured on September 17, 2026: an open class allowed **12 of 12** requests, including an anonymous `DELETE` of another user's row. After the locks, **6 of 12**: the owner's own rows and the master key. Every table in the article comes from these scripts.
 
-> **Read the article:** [Your Frontend Talks Straight to the Database. Here Is How to Lock It Down](https://www.back4app.com/blog/lock-down-a-backend-your-frontend-talks-to)
+> **Read the article:** [Your Frontend Talks Straight to the Database. Here Is How to Lock It Down](https://www.back4app.com/blog/lock-down-a-backend-your-frontend-talks-to?utm_source=github&utm_medium=repo&utm_campaign=lockdown-lab)
 
 ## The tables
 
@@ -34,7 +36,7 @@ The ACL hides a row it denies: `bob` gets the same `404 / 101 Object not found` 
 
 ## Deploy your own
 
-1. **Create a free backend.** Sign up at [https://www.back4app.com/signup](https://www.back4app.com/signup), then **New App → Build your Backend**. The free plan is enough for everything here.
+1. **Create a free backend.** Sign up at [https://www.back4app.com/signup?utm_source=github&utm_medium=repo&utm_campaign=lockdown-lab](https://www.back4app.com/signup?utm_source=github&utm_medium=repo&utm_campaign=lockdown-lab), then **New App → Build your Backend**. The free plan is enough for everything here.
 2. **App Settings → Security & Keys**: copy the App ID, the JavaScript key and the Master key into `.env` (git-ignored; `.env.example` shows the names). The master key stays on your machine.
 3. Run the scripts below. `seed.sh` creates the users and the role; the first `probe.sh` is the open-class table.
 4. **Cloud Code → main.js**: paste `cloud/main.js` and click **Deploy**, twice on a fresh backend (the first deploy ships nothing). Prove it: a logged-in create must show the owner's id in the ACL column of Database → Note.
@@ -55,7 +57,7 @@ set -a; . ./.env; set +a
 
 ## What the backend gives you
 
-A managed Parse Server with a database, REST and GraphQL APIs, Cloud Code, and the three permission layers this repo exercises: class-level permissions, per-object ACLs and roles. Documentation: [https://www.back4app.com/docs](https://www.back4app.com/docs) · security guide: [https://www.back4app.com/docs/security/parse-server-security](https://www.back4app.com/docs/security/parse-server-security).
+A managed Parse Server with a database, REST and GraphQL APIs, Cloud Code, and the three permission layers this repo exercises: class-level permissions, per-object ACLs and roles. Documentation: [https://www.back4app.com/docs?utm_source=github&utm_medium=repo&utm_campaign=lockdown-lab](https://www.back4app.com/docs?utm_source=github&utm_medium=repo&utm_campaign=lockdown-lab) · security guide: [https://www.back4app.com/docs/security/parse-server-security](https://www.back4app.com/docs/security/parse-server-security).
 
 If the app does not have accounts yet, start with the companion repo [user-auth-starter](https://github.com/templates-back4app/user-auth-starter).
 
